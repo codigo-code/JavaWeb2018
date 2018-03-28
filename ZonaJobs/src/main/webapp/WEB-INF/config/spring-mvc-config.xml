@@ -25,6 +25,8 @@
 		</bean>
 	
 	
+<bean id="webexpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
+
 
 <!-- 	<bean id="saludoControlador" class="com.utn.controller.SaludoController" scope="request"> -->
 <!-- 		<property name="persona" ref="personaBean"></property> -->
