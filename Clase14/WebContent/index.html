@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+	<div ng-controller="formularioControlador">
+
+		<h1>{{titulo}}</h1>
+
+		<form>
+			<input type="text" name="nombre" ng-model="nombre"
+				placeholder="nombre" /><br>
+			<button ng-click="checar(this)">Chequeo!</button>
+		</form>
+
+		{{nombre}} <br> usuario : {{user}} y contraseña : {{password}} <br>
+		<input
+			type="text" ng-model="user" placeholder="user name" /> <br> <input
+			type="password" ng-model="password" placeholder="password!" />
+		<button ng-click="checkUser()">Check user!</button>
+	</div>
+
+	<div ng-controller="controlado2"></div>
+
+</body>
+</html>
