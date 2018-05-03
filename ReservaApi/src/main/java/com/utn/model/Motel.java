@@ -23,7 +23,7 @@ public class Motel {
 	private int numHabitacion;
 	@Column
 	private boolean estadia;
-
+	
 	public double getPrecio() {
 		return precio;
 	}
