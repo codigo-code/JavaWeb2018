@@ -20,7 +20,30 @@
 					});
 
 		}
+		
+		$scope.inputApi = function(){
+			//console.log($scope.pepe);
+			$http({
+				method: "POST",
+				url: "http://localhost:8080/save",
+				data: angular.toJson($scope.pepe),
+				headers:{
+					'Content-Type':'application/json'
+				}
+			}).then(function(success){
+				alert("inserto el objeto");
+			},function(err){
+				console.log(err);
+			})
 
+					
+		}
+
+		
+	});
+	
+	app.controller('controladorX',function($scope){
+		$scope.pedo="oloroso";
 	});
 
 })();

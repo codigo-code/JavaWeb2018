@@ -19,12 +19,18 @@ public class Bar {
 	private Integer id;
 	@Column
 	private String nombre;
-	@Column
-	private Integer cantPersonas;
+	@Column(name="cant_personas")
+	private Integer cant_personas;
 	@Column
 	private double precio;
 	
 	
+	public Integer getCant_personas() {
+		return cant_personas;
+	}
+	public void setCant_personas(Integer cant_personas) {
+		this.cant_personas = cant_personas;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -37,12 +43,8 @@ public class Bar {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Integer getCantPersonas() {
-		return cantPersonas;
-	}
-	public void setCantPersonas(Integer cantPersonas) {
-		this.cantPersonas = cantPersonas;
-	}
+
+
 	public double getPrecio() {
 		return precio;
 	}
