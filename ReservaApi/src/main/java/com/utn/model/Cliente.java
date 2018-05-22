@@ -1,10 +1,13 @@
 package com.utn.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -12,11 +15,31 @@ import org.springframework.stereotype.Component;
 @Table(name = "cliente")
 @Entity
 @Component
-public class Cliente {
+public class Cliente implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 587103868758489443L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	
+	@ManyToOne
+	private Reserva reserva;
+
+	public Reserva getReserva() {
+		return reserva;
+	}
+
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	@Column
 	private String nombre;

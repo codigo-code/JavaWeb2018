@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 import com.utn.model.Bar;
-import com.utn.model.Reserva;
+import com.utn.model.Cliente;
 import com.utn.model.respositories.ReservaBar;
 import com.utn.model.respositories.dao.ReservaDao;
 
@@ -53,6 +53,11 @@ public class ReservaBarApi {
 	@GetMapping(value = "getReserva/{id}")
 	public ResponseEntity getReserva(@PathVariable("id") Integer id) {
 
+		System.out.println(reserva.getAllPersonasReserva(id).get());
+		
+		for (Cliente item: reserva.getAllPersonasReserva(id).get().getListCliente()) {
+			System.out.println(item);
+		}
 		return ResponseEntity.ok(reserva.getAllPersonasReserva(id));
 	}
 

@@ -1,7 +1,9 @@
 package com.utn.model;
 
+import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,14 +15,19 @@ import javax.persistence.Table;
 
 @Table
 @Entity
-public class Reserva {
+public class Reserva implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9167538939079908703L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
 	@Column
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="reserva", fetch=FetchType.EAGER, cascade= CascadeType.ALL)
 	private List<Cliente> listCliente;
 
 	public Integer getId() {
@@ -37,6 +44,11 @@ public class Reserva {
 
 	public void setListCliente(List<Cliente> listCliente) {
 		this.listCliente = listCliente;
+	}
+
+	@Override
+	public String toString() {
+		return "Reserva [id=" + id + ", listCliente=" + listCliente + "]";
 	}
 
 	
